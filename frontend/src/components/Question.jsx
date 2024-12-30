@@ -15,7 +15,7 @@ const Question = () => {
       setSelected(value);
     };
   return (
-    <div className='text-center flex justify-center flex-col w-full align-middle items-center'>
+    <div className='mb-20 text-center flex justify-center flex-col w-full align-middle items-center'>
                 <p className='text-2xl'>This is a question. A very inquisitive question. What is your answer?</p>
                 <div className="flex items-center justify-between w-3/4 mt-8 relative">
                     <span className="left-0 text-lg text-gray-600 ">
@@ -23,7 +23,7 @@ const Question = () => {
                     </span>
 
                     {options.map((option, index) => (
-                        <label key={option.value} className="flex flex-col items-center">
+                        <label key={option.value} className="flex flex-col mt-10 items-center">
                         <input
                             type="radio"
                             name="response"
@@ -35,8 +35,9 @@ const Question = () => {
                         <div
                             className={`${
                             index === 0 || index === options.length - 1
-                                ? "w-10 h-10" 
-                                : "w-8 h-8"
+                                ? "w-14 h-14" 
+                                : index ===1 || index === options.length - 2? 
+                                "w-10 h-10" : "w-8 h-8" 
                             } ${
                             selected === option.value
                                 ? index === 0 || index === 1
