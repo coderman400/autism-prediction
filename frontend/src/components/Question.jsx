@@ -1,0 +1,66 @@
+import React from 'react'
+import { useState } from 'react';
+const Question = () => {
+    const [selected, setSelected] = useState(null);
+
+    const options = [
+      { value: 1, label: "Strongly Agree" },
+      { value: 2, label: "Agree" },
+      { value: 3, label: "Neutral" },
+      { value: 4, label: "Disagree" },
+      { value: 5, label: "Strongly Disagree" },
+    ];
+  
+    const handleChange = (value) => {
+      setSelected(value);
+    };
+  return (
+    <div className='text-center flex justify-center flex-col w-full align-middle items-center'>
+                <p className='text-2xl'>This is a question. A very inquisitive question. What is your answer?</p>
+                <div className="flex items-center justify-between w-3/4 mt-8 relative">
+                    <span className="left-0 text-lg text-gray-600 ">
+                        Strongly Agree
+                    </span>
+
+                    {options.map((option, index) => (
+                        <label key={option.value} className="flex flex-col items-center">
+                        <input
+                            type="radio"
+                            name="response"
+                            value={option.value}
+                            checked={selected === option.value}
+                            onChange={() => handleChange(option.value)}
+                            className="hidden"
+                        />
+                        <div
+                            className={`${
+                            index === 0 || index === options.length - 1
+                                ? "w-10 h-10" 
+                                : "w-8 h-8"
+                            } ${
+                            selected === option.value
+                                ? index === 0 || index === 1
+                                ? "bg-green-400 border-green-400"
+                                : index === options.length - 2 || index === options.length - 1
+                                ? "bg-red-400 border-red-400"
+                                : "bg-gray-400 border-gray-400"
+                                : index === 0 || index === 1
+                                ? "hover:bg-green-400 hover:border-green-400"
+                                : index === options.length - 2 || index === options.length - 1
+                                ? "hover:bg-red-400 hover:border-red-400"
+                                : "hover:bg-gray-400 hover:border-gray-400"
+                            } duration-200 rounded-full border-2 cursor-pointer flex items-center justify-center ${
+                            selected === option.value ? "" : "border-gray-400"
+                            }`}
+                        ></div>
+                        </label>
+                    ))}
+                    <span className="right-0 text-lg text-gray-600 ">
+                        Strongly Disagree
+                    </span>
+                </div>
+            </div>
+  )
+}
+
+export default Question

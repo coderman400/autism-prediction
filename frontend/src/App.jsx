@@ -1,41 +1,39 @@
 import { useState } from 'react'
 import './App.css'
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import ValueCard from './components/ui/ValueCard'
+import Question from './components/Question'
 import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel"
-
-
-
+    Card,
+    CardContent,
+    CardDescription,
+    CardFooter,
+    CardHeader,
+    CardTitle,
+  } from "@/components/ui/card"
 function App() {
 
 
   return (
-    <div className='flex justify-center mt-20 align-middle'>
-      <Carousel className="w-full max-w-xs">
-      <CarouselContent>
-        {Array.from({ length: 5 }).map((_, index) => (
-          <CarouselItem key={index}>
-            <div className="p-1">
-              <Card>
-                <CardContent className="flex aspect-square items-center justify-center p-6">
-                  <span className="text-4xl font-semibold">{index + 1}</span>
-                </CardContent>
-              </Card>
-            </div>
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
-    </Carousel>
+    <div className='flex flex-col w-full justify-center items-center align-middle '>
 
+        <div className='bg-secondary h-40 flex w-full justify-center items-center text-center'>
+            <p className='text-5xl text-white font-semibold' >Meow Meow Meow.</p>
+        </div>
+
+        <section className='bg-white h-52 w-full relative' >
+            <div className='absolute z-20 flex justify-center w-full gap-10'>
+                <ValueCard />
+                <ValueCard />
+                <ValueCard />
+            </div>
+            <div className='bg-secondary absolute w-full h-20' style={{clipPath: 'polygon(0 0,100% 0,100% calc(100% - 20px),calc(50% + 320px) 100%,47% calc(100% - 15px),calc(50% - 310px) 100%,0 calc(100% - 15px))'}}></div>
+        </section>
+
+        <div className='w-3/4 flex flex-col align-middle justify-center mt-20'>
+            <Question />
+        </div>
     </div>
+
   )
 }
 
