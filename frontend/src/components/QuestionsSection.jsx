@@ -6,12 +6,15 @@ import SelectQuestion from './SelectQuestion';
 import { Button } from './ui/button';
 import data from '../data/questions.json';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const QuestionsSection = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [answers, setAnswers] = useState({}); // Store answers here
+  const [answers, setAnswers] = useState({});
+  const [error, setError] = useState('');
   const questionsPerPage = [5, 5, 3, 4];
   const totalPages = questionsPerPage.length;
+  const navigate = useNavigate();
 
   const startIdx = questionsPerPage
     .slice(0, currentPage - 1)
@@ -20,6 +23,17 @@ const QuestionsSection = () => {
   const currentQuestions = data.questions.slice(startIdx, endIdx);
 
   const handleNextPage = () => {
+
+    const unanswered = currentQuestions.some(
+      (question) => answers[question.id]===undefined
+    );
+
+    if (unanswered) {
+      setError('Please answer all the questions on this page.');
+      return;
+    }
+
+    setError('');
     if (currentPage < totalPages) {
       setCurrentPage(currentPage + 1);
       window.scrollTo({
@@ -30,7 +44,6 @@ const QuestionsSection = () => {
   };
 
   const handleAnswerChange = (questionId, answer) => {
-    console.log(questionId, " set as ", answer)
     setAnswers((prevAnswers) => ({
       ...prevAnswers,
       [questionId]: answer,
@@ -38,11 +51,24 @@ const QuestionsSection = () => {
   };
 
   const submitTest = async () => {
-    console.log(answers);
+    // Validate all questions on the final page
+    const unanswered = currentQuestions.some(
+      (question) => !answers[question.id]
+    );
+
+    if (unanswered) {
+      setError('Please answer all the questions on this page.');
+      return;
+    }
+
+    setError('');
     try {
-      const response = await axios.post('http://127.0.0.1:8000/predict', answers);
+      const response = await axios.post(
+        'http://127.0.0.1:8000/predict',
+        answers
+      );
       console.log('Test submitted successfully:', response.data.prediction);
-      // handle success
+      navigate('result', { state: { prediction: response.data.prediction } });
     } catch (error) {
       console.error('Error submitting the test:', error);
     }
@@ -94,6 +120,12 @@ const QuestionsSection = () => {
           }
         })}
       </div>
+
+      {error && (
+        <div className="text-red-500 text-center mb-4">
+          {error}
+        </div>
+      )}
 
       <div className="flex justify-center">
         <Button

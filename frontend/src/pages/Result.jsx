@@ -2,13 +2,13 @@ import React from "react";
 import ResultSection from "@/components/ResultSection";
 import Emphasize from "@/components/Emphasize";
 import { Button } from "@/components/ui/button";
-
+import { useNavigate, useLocation } from "react-router-dom";
 const autisticContent = {
   sections: [
     {
       title: "What does this mean?",
       description:
-        "You should probably get a diagnosis for Autism Spectrum Disorder if you haven't already. It is a neurological and devolpmental disorder that affects how you interact with others, communicate, learn and behave. It can be diagnosed at any age but generally show symptoms within the first two years of life.",
+        "You should probably get a diagnosis for Autism Spectrum Disorder if you haven't already. It is a neurological and developmental disorder that affects how you interact with others, communicate, learn and behave. It can be diagnosed at any age but generally show symptoms within the first two years of life.",
       subdesc:"About 1 in 100 children has autism but it is often not diagnosed until much later in late teens or in the 20s. Abilities of autistic people vary and evolve over time, while some can live independently, others have severe disabilities and require life-long support. It is not a disorder that can be cured, but several treatments help improve the quality of life.",
         emphasize: {
         text: '"Autism is not a processing error. Its a different operating system."',
@@ -34,7 +34,7 @@ const notAutisticContent = {
       {
         title: "What does this mean?",
         description:
-          "You most likely don't have autism, which makes life easier. It is a neurological and devolpmental disorder that affects how you interact with others, communicate, learn and behave. It can be diagnosed at any age but generally show symptoms within the first two years of life.",
+          "You most likely don't have autism, which makes life easier. It is a neurological and developmental disorder that affects how you interact with others, communicate, learn and behave. It can be diagnosed at any age but generally show symptoms within the first two years of life.",
         subdesc:"About 1 in 100 children has autism but it is often not diagnosed until much later in late teens or in the 20s. Abilities of autistic people vary and evolve over time, while some can live independently, others have severe disabilities and require life-long support. It is not a disorder that can be cured, but several treatments help improve the quality of life.",
           emphasize: {
           text: '"The only disability in life is a bad attitude."',
@@ -56,7 +56,13 @@ const notAutisticContent = {
   };
 
 const Result = () => {
-    const autistic = false
+    const location = useLocation();
+    const navigate = useNavigate();
+    const {prediction} = location.state || {}
+    let autistic = false;
+    if(prediction == "yes"){
+        autistic = true
+    }
     let content = {}
     if(autistic){
         content = autisticContent
@@ -82,7 +88,7 @@ const Result = () => {
           />
         </div>
       ))}
-      <Button variant={autistic? '' : 'secondary'} className="w-64 h-16 text-2xl mt-10">Retake the Test</Button>
+      <Button variant={autistic? '' : 'secondary'} onClick={()=> navigate('/')} className="w-64 h-16 text-2xl mt-10">Retake the Test</Button>
     </div>
   );
 };
