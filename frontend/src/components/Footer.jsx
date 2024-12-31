@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="bg-secondary text-white py-6 mt-6">
+    <footer className="bg-muted text-white py-6 mt-6">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
         <div className="text-center md:text-left">
           <p className="text-lg font-semibold">Meow Meow Meow</p>
@@ -10,21 +10,21 @@ const Footer = () => {
         </div>
         <div className="mt-4 md:mt-0">
           <a
-            href="#"
+            href="https://www.linkedin.com/in/arvind-babu-538186260/"
             className="text-white hover:text-saffron mx-2"
-            aria-label="Facebook"
+            aria-label="LinkedIn"
           >
-            Facebook
+            LinkedIn
           </a>
           <a
-            href="#"
+            href="https://github.com/coderman400"
             className="text-white hover:text-saffron mx-2"
-            aria-label="Twitter"
+            aria-label="Github"
           >
-            Twitter
+            Github
           </a>
           <a
-            href="#"
+            href="https://www.instagram.com/arvindd.xd/"
             className="text-white hover:text-saffron mx-2"
             aria-label="Instagram"
           >

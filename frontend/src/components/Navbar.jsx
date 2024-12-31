@@ -11,7 +11,7 @@ const Navbar = () => {
       
       <div className="flex items-center">
         <a
-          href="https://github.com/your-username"
+          href="https://github.com/coderman400/autism-prediction"
           target="_blank"
           rel="noopener noreferrer"
           className=""

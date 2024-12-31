@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import ResultSection from "@/components/ResultSection";
 import Emphasize from "@/components/Emphasize";
 import { Button } from "@/components/ui/button";
@@ -69,6 +69,10 @@ const Result = () => {
     }else{
         content = notAutisticContent
     }
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
+      
   return (
     <div className="min-h-[90vh] flex flex-col w-full items-center">
       <ResultSection autistic={autistic}/>

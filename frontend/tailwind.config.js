@@ -29,10 +29,10 @@ export default {
   			},
   			secondary: {
   				DEFAULT: '#5CA4A9',
-  				foreground: 'hsl(var(--secondary-foreground))'
+  				foreground: 'white'
   			},
   			muted: {
-  				DEFAULT: 'hsl(var(--muted))',
+  				DEFAULT: '#9BC1BC',
   				foreground: 'hsl(var(--muted-foreground))'
   			},
   			accent: {
