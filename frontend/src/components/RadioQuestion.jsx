@@ -10,9 +10,24 @@ const RadioQuestion = (props) => {
       { value: 4, label: "Disagree" },
       { value: 5, label: "Strongly Disagree" },
     ];
-  
+    
+    const getScore = (value, id) => {
+        if(["A1_Score","A7_Score","A8_Score","A10_Score"].includes(id)){
+            if(value== 1 || value==2){
+                return 1
+            }
+            return 0
+        }else{
+            if(value== 1 || value==2){
+                return 0
+            }
+            return 1
+        }
+    }
+
     const handleChange = (value) => {
       setSelected(value);
+      props.onAnswerChange(props.question.id, getScore(value, props.question.id))
     };
   return (
     <div className='mb-20 text-center flex justify-center flex-col w-full align-middle items-center'>

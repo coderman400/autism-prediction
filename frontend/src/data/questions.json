@@ -1,56 +1,69 @@
 {
     "questions": [
       {
+        "id": "A1_Score",
         "question": "I often notice small sounds when others do not",
         "type": "radio"
       },
       {
+        "id": "A2_Score",
         "question": "I usually concentrate more on the whole picture, rather than the small details",
         "type": "radio"
       },
       {
+        "id": "A3_Score",
         "question": "I find it easy to do more than one thing at once",
         "type": "radio"
       },
       {
+        "id": "A4_Score",
         "question": "If there is an interruption, I can switch back to what I was doing very quickly",
         "type": "radio"
       },
       {
+        "id": "A5_Score",
         "question": "I find it easy to ‘read between the lines’ when someone is talking to me",
         "type": "radio"
       },
       {
+        "id": "A6_Score",
         "question": "I know how to tell if someone listening to me is getting bored",
         "type": "radio"
       },
       {
+        "id": "A7_Score",
         "question": "When I’m reading a story I find it difficult to work out the characters’ intentions",
         "type": "radio"
       },
       {
+        "id": "A8_Score",
         "question": "I like to collect information about categories of things (e.g. types of car, types of bird, types of train, types of plant etc)",
         "type": "radio"
       },
       {
+        "id": "A9_Score",
         "question": "I find it easy to work out what someone is thinking or feeling just by looking at their face",
         "type": "radio"
       },
       {
+        "id": "A10_Score",
         "question": "I find it difficult to work out people’s intentions",
         "type": "radio"
       },
       {
+        "id": "age",
         "question": "What is your age?",
         "placeholder": "Enter age.",
         "type": "input"
       },
       {
+        "id": "gender",
         "question": "What is your gender?",
         "options": ["male", "female", "other"],
         "type": "button"
       },
       {
+        "id": "ethnicity",
         "question": "What's your ethnicity?",
         "placeholder": "Select ethnicity",
         "options": [
@@ -68,34 +81,38 @@
         "type": "select"
       },
       {
+        "id": "country_of_res",
         "question": "What's your country of residence?",
         "placeholder": "Select country",
         "options": [
-            "Afghanistan", "Angola", "Argentina", "Armenia", "Aruba",
-            "Australia", "Austria", "Azerbaijan", "Bahamas", "Bangladesh",
-            "Belgium", "Bolivia", "Brazil", "Burundi", "Canada",
-            "China", "Cyprus", "Czech Republic", "Egypt", "Ethiopia",
-            "France", "Germany", "Iceland", "India", "Iran", "Iraq",
-            "Ireland", "Italy", "Japan", "Jordan", "Kazakhstan",
-            "Malaysia", "Mexico", "Nicaragua", "Niger", "Netherlands",
-            "New Zealand", "Oman", "Pakistan", "Romania", "Russia",
-            "Saudi Arabia", "Serbia", "Sierra Leone", "South Africa", "Spain",
-            "Sri Lanka", "Sweden", "Tonga", "Turkey", "Ukraine",
-            "United Arab Emirates", "United Kingdom", "United States", "Viet Nam", "Others"
+          "Afghanistan", "Angola", "Argentina", "Armenia", "Aruba",
+          "Australia", "Austria", "Azerbaijan", "Bahamas", "Bangladesh",
+          "Belgium", "Bolivia", "Brazil", "Burundi", "Canada",
+          "China", "Cyprus", "Czech Republic", "Egypt", "Ethiopia",
+          "France", "Germany", "Iceland", "India", "Iran", "Iraq",
+          "Ireland", "Italy", "Japan", "Jordan", "Kazakhstan",
+          "Malaysia", "Mexico", "Nicaragua", "Niger", "Netherlands",
+          "New Zealand", "Oman", "Pakistan", "Romania", "Russia",
+          "Saudi Arabia", "Serbia", "Sierra Leone", "South Africa", "Spain",
+          "Sri Lanka", "Sweden", "Tonga", "Turkey", "Ukraine",
+          "United Arab Emirates", "United Kingdom", "United States", "Viet Nam", "Others"
         ],
         "type": "select"
       },
       {
+        "id": "jaundice",
         "question": "Did you have jaundice at birth?",
         "options": ["yes", "no"],
         "type": "button"
       },
       {
-        "question": "Does any immediate family have autism?",
-        "options"                                                                                                                                                          : ["yes", "no"],
+        "id": "autism",
+        "question": "Does any of your immediate family have autism?",
+        "options": ["yes", "no"],
         "type": "button"
       },
       {
+        "id": "relation",
         "question": "Are you taking the test on behalf of someone else?",
         "options": ["yes", "no"],
         "type": "button"

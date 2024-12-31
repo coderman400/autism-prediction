@@ -1,21 +1,28 @@
-import React from 'react'
-// age: int
-// gender: str
-// ethnicity: str
-// jaundice: str
-// autism: str
-// country_of_res: str
-// relation: str
-import { Input } from "@/components/ui/input"
+import React, { useState } from 'react';
+import { Input } from "@/components/ui/input";
 
 const InputQuestion = (props) => {
-    const question = props.question
-  return (
-    <div className='mb-20 text-center flex justify-center flex-row gap-20 text-2xl w-full align-middle items-center'>
-        <p className='align-left'>{question.question}</p> 
-        <Input type="text" placeholder={question.placeholder} className='w-1/4 p-6'></Input>
-    </div>
-  )
-}
+  const [val, setVal] = useState('');  
+  const question = props.question;
 
-export default InputQuestion
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    setVal(value);
+    props.onAnswerChange(question.id, Number(value)); 
+  };
+
+  return (
+    <div className="mb-20 text-center flex justify-center flex-row gap-20 text-2xl w-full align-middle items-center">
+      <p className="text-left">{question.question}</p>  
+      <Input
+        value={val}
+        onChange={handleInputChange}
+        type="text"
+        placeholder={question.placeholder}
+        className="w-1/4 p-6"
+      />
+    </div>
+  );
+};
+
+export default InputQuestion;

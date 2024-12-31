@@ -5,9 +5,11 @@ import ButtonQuestion from './ButtonQuestion';
 import SelectQuestion from './SelectQuestion';
 import { Button } from './ui/button';
 import data from '../data/questions.json';
+import axios from 'axios';
 
 const QuestionsSection = () => {
   const [currentPage, setCurrentPage] = useState(1);
+  const [answers, setAnswers] = useState({}); // Store answers here
   const questionsPerPage = [5, 5, 3, 4];
   const totalPages = questionsPerPage.length;
 
@@ -27,37 +29,64 @@ const QuestionsSection = () => {
     }
   };
 
+  const handleAnswerChange = (questionId, answer) => {
+    console.log(questionId, " set as ", answer)
+    setAnswers((prevAnswers) => ({
+      ...prevAnswers,
+      [questionId]: answer,
+    }));
+  };
+
+  const submitTest = async () => {
+    console.log(answers);
+    try {
+      const response = await axios.post('http://127.0.0.1:8000/predict', answers);
+      console.log('Test submitted successfully:', response.data.prediction);
+      // handle success
+    } catch (error) {
+      console.error('Error submitting the test:', error);
+    }
+  };
+
   return (
     <>
       <div className="w-3/4 flex flex-col align-middle justify-center mt-20">
-        {currentQuestions.map((question, index) => {
+        {currentQuestions.map((question) => {
           switch (question.type) {
             case "radio":
               return (
                 <RadioQuestion
-                  key={index}
+                  key={question.id}
                   question={question}
+                  onAnswerChange={handleAnswerChange}
+                  answer={answers[question.id]}
                 />
               );
             case "input":
               return (
                 <InputQuestion
-                  key={index}
+                  key={question.id}
                   question={question}
+                  onAnswerChange={handleAnswerChange}
+                  answer={answers[question.id]}
                 />
               );
             case "button":
               return (
                 <ButtonQuestion
-                  key={index}
+                  key={question.id}
                   question={question}
+                  onAnswerChange={handleAnswerChange}
+                  answer={answers[question.id]}
                 />
               );
             case "select":
               return (
                 <SelectQuestion
-                  key={index}
+                  key={question.id}
                   question={question}
+                  onAnswerChange={handleAnswerChange}
+                  answer={answers[question.id]}
                 />
               );
             default:
@@ -69,10 +98,9 @@ const QuestionsSection = () => {
       <div className="flex justify-center">
         <Button
           className="w-32 h-16 text-2xl"
-          onClick={handleNextPage}
-          disabled={currentPage >= totalPages}
+          onClick={currentPage >= totalPages ? submitTest : handleNextPage}
         >
-          Next
+          {currentPage >= totalPages ? 'Submit' : 'Next'}
         </Button>
       </div>
     </>
