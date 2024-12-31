@@ -17,10 +17,10 @@ const SelectQuestion = (props) => {
     };
 
     return (
-        <div className='mb-20 text-center flex justify-center flex-row gap-20 text-2xl w-full align-middle items-center'>
+        <div className='mb-20 text-center flex justify-center flex-col md:flex-row md:gap-20 gap-4 text-lg md:text-2xl w-full align-middle items-center'>
             <p className=''>{question.question} </p>
             <Select value={answer} onValueChange={handleSelectChange}> 
-                <SelectTrigger className="w-1/4 p-6">
+                <SelectTrigger className="w-1/2 md:w-1/4 p-6">
                     <SelectValue placeholder={question.placeholder}/>
                 </SelectTrigger>
                 <SelectContent>

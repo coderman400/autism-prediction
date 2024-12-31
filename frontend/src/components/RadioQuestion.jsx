@@ -31,9 +31,9 @@ const RadioQuestion = (props) => {
     };
   return (
     <div className='mb-20 text-center flex justify-center flex-col w-full align-middle items-center'>
-                <p className='text-2xl'>{question.question}</p>
-                <div className="flex items-center justify-between w-3/4 mt-8 relative">
-                    <span className="left-0 text-lg text-gray-600 ">
+                <p className='text-lg md:text-2xl'>{question.question}</p>
+                <div className="flex items-center justify-between w-full md:w-3/4 mt-8 relative">
+                    <span className="left-0 text-sm md:text-lg text-gray-600 ">
                         Strongly Agree
                     </span>
 
@@ -65,13 +65,13 @@ const RadioQuestion = (props) => {
                                 : index === options.length - 2 || index === options.length - 1
                                 ? "hover:bg-red-400 hover:border-red-400"
                                 : "hover:bg-gray-400 hover:border-gray-400"
-                            } duration-200 rounded-full border-2 cursor-pointer flex items-center justify-center ${
+                            } duration-200 rounded-full border-2 cursor-pointer flex items-center justify-center mx-1 md:mx-0  ${
                             selected === option.value ? "" : "border-gray-400"
                             }`}
                         ></div>
                         </label>
                     ))}
-                    <span className="right-0 text-lg text-gray-600 ">
+                    <span className="right-0 text-sm md:text-lg text-gray-600 ">
                         Strongly Disagree
                     </span>
                 </div>

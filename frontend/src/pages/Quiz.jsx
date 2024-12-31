@@ -8,8 +8,8 @@ const Quiz = () => {
       <p className="text-5xl text-white font-semibold">Find out if you have Autism.</p>
     </div>
 
-    <section className="bg-white h-52 mb-40 w-full relative">
-      <div className="absolute z-20 flex justify-center w-full gap-10">
+    <section className="bg-white h-52 mb-0 md:mb-40 w-full relative">
+      <div className="absolute hidden md:flex z-20 justify-center w-full gap-10">
         <ValueCard id={1} />
         <ValueCard id={2}/>
         <ValueCard id={3}/>

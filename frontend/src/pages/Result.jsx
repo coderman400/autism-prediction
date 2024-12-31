@@ -75,11 +75,11 @@ const Result = () => {
       {content.sections.map((section, index) => (
         <div
           key={index}
-          className="w-2/3 px-20 flex flex-col gap-8 align-middle justify-center mt-24"
+          className="w-full md:w-2/3 px-20 flex flex-col gap-8 align-middle justify-center mt-24"
         >
-          <p className="text-4xl font-semibold">{section.title}</p>
-          <p className="text-xl">{section.description}</p>
-          <p className="text-xl">{section.subdesc}</p>
+          <p className="text-2xl md:text-4xl font-semibold">{section.title}</p>
+          <p className="text-md md:text-xl">{section.description}</p>
+          <p className="text-md md:text-xl">{section.subdesc}</p>
           <Emphasize
             text={section.emphasize.text}
             subtext={section.emphasize.subtext}

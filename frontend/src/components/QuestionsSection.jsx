@@ -76,7 +76,7 @@ const QuestionsSection = () => {
 
   return (
     <>
-      <div className="w-3/4 flex flex-col align-middle justify-center mt-20">
+      <div className="w-full md:w-3/4 flex flex-col align-middle justify-center mt-0 md:mt-20">
         {currentQuestions.map((question) => {
           switch (question.type) {
             case "radio":

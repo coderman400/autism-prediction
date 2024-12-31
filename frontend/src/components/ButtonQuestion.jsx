@@ -21,14 +21,14 @@ const ButtonQuestion = (props) => {
   };
 
   return (
-    <div className='mb-20 text-center flex justify-center flex-row gap-10 text-2xl w-full items-center'>
-      <p className='text-2xl w-1/4'>{question.question}</p> 
-      <div className='flex w-1/4 flex-row gap-4 justify-center items-center'>
+    <div className='mb-20 text-center flex justify-center flex-col md:flex-row gap-4 md:gap-10 text-lg md:text-2xl w-full items-center'>
+      <p className='md:text-2xl md:w-1/4 text-lg w-full'>{question.question}</p> 
+      <div className='flex w-1/2 md:w-1/4 flex-row gap-4 justify-center items-center'>
         {question.options.map((option) => (
           <Button
             key={option}
             variant={selectedOption === option ? "" : "secondary"} 
-            className='p-8 text-lg'
+            className='p-2 md:p-8 text-lg'
             onClick={() => handleButtonClick(option)}
           >
             {option}
