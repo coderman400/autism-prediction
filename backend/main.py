@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import pickle
 import pandas as pd
@@ -6,7 +7,13 @@ import pandas as pd
 
 app = FastAPI()
 
-
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  
+    allow_credentials=True,
+    allow_methods=["*"], 
+    allow_headers=["*"],  
+)
 with open("model/best_model.pkl", "rb") as model_file:
     model = pickle.load(model_file)
 
@@ -51,7 +58,7 @@ def predict(input_data: InputData):
 
     # Make prediction
     prediction = model.predict(data)[0]
-    result = "Autism Detected" if prediction == 1 else "No Autism Detected"
+    result = "yes" if prediction == 1 else "no"
 
     return {
         "input": input_dict,
