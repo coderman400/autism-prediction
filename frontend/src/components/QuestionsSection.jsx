@@ -1,6 +1,17 @@
 import React, { useState } from 'react';
-import Question from "./Question";
+import RadioQuestion from "./RadioQuestion";
+import InputQuestion from './InputQuestion';
+import ButtonQuestion from './ButtonQuestion';
+import SelectQuestion from './SelectQuestion';
 import { Button } from './ui/button';
+
+// age: int
+// gender: str
+// ethnicity: str
+// jaundice: str
+// autism: str
+// country_of_res: str
+// relation: str
 const QuestionsSection = () => {
   const questions = Array.from({ length: 17 }, (_, index) => ({
     id: index + 1,
@@ -31,7 +42,7 @@ const QuestionsSection = () => {
     <>
       <div className="w-3/4 flex flex-col align-middle justify-center mt-20">
         {currentQuestions.map((question) => (
-          <Question key={question.id} text={question.text} />
+          <SelectQuestion key={question.id} />
         ))}
       </div>
 

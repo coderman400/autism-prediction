@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
-const Question = () => {
+const RadioQuestion = () => {
     const [selected, setSelected] = useState(null);
 
     const options = [
@@ -64,4 +64,4 @@ const Question = () => {
   )
 }
 
-export default Question
+export default RadioQuestion
