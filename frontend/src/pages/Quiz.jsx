@@ -5,14 +5,14 @@ const Quiz = () => {
   return (
     <div className="flex flex-col w-full justify-center items-center align-middle">
     <div className="bg-secondary h-40 flex w-full justify-center items-center text-center">
-      <p className="text-5xl text-white font-semibold">Meow Meow Meow.</p>
+      <p className="text-5xl text-white font-semibold">Find out if you have Autism.</p>
     </div>
 
-    <section className="bg-white h-52 w-full relative">
+    <section className="bg-white h-52 mb-40 w-full relative">
       <div className="absolute z-20 flex justify-center w-full gap-10">
-        <ValueCard />
-        <ValueCard />
-        <ValueCard />
+        <ValueCard id={1} />
+        <ValueCard id={2}/>
+        <ValueCard id={3}/>
       </div>
       <div
         className="bg-secondary absolute w-full h-20"
