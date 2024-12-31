@@ -1,14 +1,17 @@
-import { useState } from "react";
-import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Quiz from "./pages/Quiz";
 import Footer from "./components/Footer";
+import Result from "./pages/Result"; 
 
 function App() {
   return (
-    <>
-    <Quiz />
-    <Footer />
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Quiz />} />
+        <Route path="/result" element={<Result />} />
+      </Routes>
+      <Footer/>
+    </Router>
   );
 }
 
