@@ -1,0 +1,105 @@
+{
+    "questions": [
+      {
+        "question": "I often notice small sounds when others do not",
+        "type": "radio"
+      },
+      {
+        "question": "I usually concentrate more on the whole picture, rather than the small details",
+        "type": "radio"
+      },
+      {
+        "question": "I find it easy to do more than one thing at once",
+        "type": "radio"
+      },
+      {
+        "question": "If there is an interruption, I can switch back to what I was doing very quickly",
+        "type": "radio"
+      },
+      {
+        "question": "I find it easy to ‘read between the lines’ when someone is talking to me",
+        "type": "radio"
+      },
+      {
+        "question": "I know how to tell if someone listening to me is getting bored",
+        "type": "radio"
+      },
+      {
+        "question": "When I’m reading a story I find it difficult to work out the characters’ intentions",
+        "type": "radio"
+      },
+      {
+        "question": "I like to collect information about categories of things (e.g. types of car, types of bird, types of train, types of plant etc)",
+        "type": "radio"
+      },
+      {
+        "question": "I find it easy to work out what someone is thinking or feeling just by looking at their face",
+        "type": "radio"
+      },
+      {
+        "question": "I find it difficult to work out people’s intentions",
+        "type": "radio"
+      },
+      {
+        "question": "What is your age?",
+        "placeholder": "Enter age.",
+        "type": "input"
+      },
+      {
+        "question": "What is your gender?",
+        "options": ["male", "female", "other"],
+        "type": "button"
+      },
+      {
+        "question": "What's your ethnicity?",
+        "placeholder": "Select ethnicity",
+        "options": [
+          "White-European",
+          "Middle Eastern",
+          "Asian",
+          "Black",
+          "South Asian",
+          "Pasifika",
+          "Latino",
+          "Hispanic",
+          "Turkish",
+          "Others"
+        ],
+        "type": "select"
+      },
+      {
+        "question": "What's your country of residence?",
+        "placeholder": "Select country",
+        "options": [
+            "Afghanistan", "Angola", "Argentina", "Armenia", "Aruba",
+            "Australia", "Austria", "Azerbaijan", "Bahamas", "Bangladesh",
+            "Belgium", "Bolivia", "Brazil", "Burundi", "Canada",
+            "China", "Cyprus", "Czech Republic", "Egypt", "Ethiopia",
+            "France", "Germany", "Iceland", "India", "Iran", "Iraq",
+            "Ireland", "Italy", "Japan", "Jordan", "Kazakhstan",
+            "Malaysia", "Mexico", "Nicaragua", "Niger", "Netherlands",
+            "New Zealand", "Oman", "Pakistan", "Romania", "Russia",
+            "Saudi Arabia", "Serbia", "Sierra Leone", "South Africa", "Spain",
+            "Sri Lanka", "Sweden", "Tonga", "Turkey", "Ukraine",
+            "United Arab Emirates", "United Kingdom", "United States", "Viet Nam", "Others"
+        ],
+        "type": "select"
+      },
+      {
+        "question": "Did you have jaundice at birth?",
+        "options": ["yes", "no"],
+        "type": "button"
+      },
+      {
+        "question": "Does any immediate family have autism?",
+        "options"                                                                                                                                                          : ["yes", "no"],
+        "type": "button"
+      },
+      {
+        "question": "Are you taking the test on behalf of someone else?",
+        "options": ["yes", "no"],
+        "type": "button"
+      }
+    ]
+  }
+  

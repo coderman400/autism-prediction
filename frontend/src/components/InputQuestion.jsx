@@ -8,14 +8,11 @@ import React from 'react'
 // relation: str
 import { Input } from "@/components/ui/input"
 
-const InputQuestion = () => {
-    const question = {
-        "question":"What's your gender?",
-        "placeholder":"Enter age"
-    }
+const InputQuestion = (props) => {
+    const question = props.question
   return (
     <div className='mb-20 text-center flex justify-center flex-row gap-20 text-2xl w-full align-middle items-center'>
-        <p>{question.question}</p> 
+        <p className='align-left'>{question.question}</p> 
         <Input type="text" placeholder={question.placeholder} className='w-1/4 p-6'></Input>
     </div>
   )

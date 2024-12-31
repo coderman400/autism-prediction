@@ -1,8 +1,8 @@
 import React from 'react'
 import { useState } from 'react';
-const RadioQuestion = () => {
+const RadioQuestion = (props) => {
     const [selected, setSelected] = useState(null);
-
+    const question = props.question
     const options = [
       { value: 1, label: "Strongly Agree" },
       { value: 2, label: "Agree" },
@@ -16,7 +16,7 @@ const RadioQuestion = () => {
     };
   return (
     <div className='mb-20 text-center flex justify-center flex-col w-full align-middle items-center'>
-                <p className='text-2xl'>This is a question. A very inquisitive question. What is your answer?</p>
+                <p className='text-2xl'>{question.question}</p>
                 <div className="flex items-center justify-between w-3/4 mt-8 relative">
                     <span className="left-0 text-lg text-gray-600 ">
                         Strongly Agree
