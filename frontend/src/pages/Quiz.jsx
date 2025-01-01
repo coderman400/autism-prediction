@@ -1,6 +1,7 @@
 import React from 'react'
 import ValueCard from "../components/ui/ValueCard";
 import QuestionsSection from "../components/QuestionsSection";
+import { useEffect } from 'react';
 const Quiz = () => {
   useEffect(() => {
     const wakeBackend = async () => {
