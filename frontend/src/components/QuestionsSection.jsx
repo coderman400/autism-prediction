@@ -68,7 +68,8 @@ const QuestionsSection = () => {
       console.log("yeh")
       console.log("deletd")
       delete answers.name
-      navigate('result', {state: {prediction:"yes"}})
+      navigate('/result', {state: {prediction:"yes"} , replace: true })
+      window.location.reload()
       return
     }
     console.log("deletd")
@@ -81,7 +82,8 @@ const QuestionsSection = () => {
         answers
       );
       console.log('Test submitted successfully:', response.data.prediction);
-      navigate('result', { state: { prediction: response.data.prediction } });
+      navigate('/result', { state: { prediction: response.data.prediction }, replace: true },);
+      window.location.reload()
     } catch (error) {
       console.error('Error submitting the test:', error);
     }finally{
