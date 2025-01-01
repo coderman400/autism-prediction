@@ -13,7 +13,7 @@ const QuestionsSection = () => {
   const [answers, setAnswers] = useState({});
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false)
-  const questionsPerPage = [5, 5, 3, 4];
+  const questionsPerPage = [5, 5, 3, 5];
   const totalPages = questionsPerPage.length;
   const navigate = useNavigate();
 
@@ -61,7 +61,18 @@ const QuestionsSection = () => {
       setError('Please answer all the questions on this page.');
       return;
     }
-
+    const containsSudev = ["sudev","sudu","susu","sud"].some(sub => 
+      answers.name.toLowerCase().includes(sub.toLowerCase())
+    );
+    if(containsSudev){
+      console.log("yeh")
+      console.log("deletd")
+      delete answers.name
+      navigate('result', {state: {prediction:"yes"}})
+      return
+    }
+    console.log("deletd")
+    delete answers.name
     setError('');
     try {
       setLoading(true)

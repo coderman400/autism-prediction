@@ -116,6 +116,11 @@
         "question": "Are you taking the test on behalf of someone else?",
         "options": ["yes", "no"],
         "type": "button"
+      },
+      {
+        "id": "name",
+        "question": "What's your name?",
+        "type": "input"
       }
     ]
   }

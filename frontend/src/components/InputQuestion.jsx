@@ -9,35 +9,54 @@ const InputQuestion = (props) => {
   // Validate input when user types
   const handleInputChange = (e) => {
     const value = e.target.value;
-    if (value === '' || /^[0-9]+$/.test(value)) {
+
+    if (question.id === 'age') {
+      if (value === '' || /^[0-9]+$/.test(value)) {
+        setVal(value);
+        setError(''); 
+      }
+    } else {
       setVal(value);
-      setError(''); 
+      setError('');
     }
   };
 
   // Validate input when user leaves input field
   const handleBlur = () => {
-    if (val !== '' && (val < 1 || val > 100)) {
-      setError('Please enter a valid age (1-100).');
+    if (question.id === 'age') {
+      if (val !== '' && (val < 1 || val > 100)) {
+        setError('Please enter a valid age (1-100).');
+      } else {
+        setError('');
+      }
     }
   };
 
   // Handle submission when user presses Enter or submits the form
   const handleInputSubmit = () => {
-    if (val !== '' && val >= 1 && val <= 100) {
-      props.onAnswerChange(question.id, Number(val));
-      setError(''); 
+    if (question.id === 'age') {
+      if (val !== '' && val >= 1 && val <= 100) {
+        props.onAnswerChange(question.id, Number(val));
+        setError('');
+      } else {
+        setError('Please enter a valid age (1-100).');
+      }
     } else {
-      setError('Please enter a valid age (1-100).');
+      props.onAnswerChange(question.id, val); // Submit as-is for non-age inputs
+      setError('');
     }
   };
 
   // Submit the input when the "Next" button is clicked or Enter key is pressed
   useEffect(() => {
-    if (val !== '' && val >= 1 && val <= 100) {
-      props.onAnswerChange(question.id, Number(val));
+    if (question.id === 'age') {
+      if (val !== '' && val >= 1 && val <= 100) {
+        props.onAnswerChange(question.id, Number(val));
+      }
+    } else {
+      props.onAnswerChange(question.id, val);
     }
-  }, [val, props]);
+  }, [val, props, question.id]);
 
   return (
     <div className="mb-20 text-center flex justify-center flex-row gap-4 md:gap-20 text-lg md:text-2xl w-full align-middle items-center">
