@@ -2,6 +2,18 @@ import React from 'react'
 import ValueCard from "../components/ui/ValueCard";
 import QuestionsSection from "../components/QuestionsSection";
 const Quiz = () => {
+  useEffect(() => {
+    const wakeBackend = async () => {
+      try {
+        await axios.get('https://autism-prediction-fmft.onrender.com'); 
+        console.log('Backend woken up!');
+      } catch (error) {
+        console.error('Error waking up the backend:', error);
+      }
+    };
+
+    wakeBackend();
+  }, []); 
   return (
     <div className="flex flex-col w-full justify-center items-center align-middle">
     <div className="bg-secondary h-40 flex w-full justify-center items-center text-center">

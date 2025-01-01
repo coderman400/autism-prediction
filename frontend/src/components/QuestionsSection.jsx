@@ -12,6 +12,7 @@ const QuestionsSection = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [answers, setAnswers] = useState({});
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false)
   const questionsPerPage = [5, 5, 3, 4];
   const totalPages = questionsPerPage.length;
   const navigate = useNavigate();
@@ -63,6 +64,7 @@ const QuestionsSection = () => {
 
     setError('');
     try {
+      setLoading(true)
       const response = await axios.post(
         'http://127.0.0.1:8000/predict',
         answers
@@ -71,6 +73,8 @@ const QuestionsSection = () => {
       navigate('result', { state: { prediction: response.data.prediction } });
     } catch (error) {
       console.error('Error submitting the test:', error);
+    }finally{
+      setLoading(false)
     }
   };
 
@@ -129,10 +133,11 @@ const QuestionsSection = () => {
 
       <div className="flex justify-center">
         <Button
-          className="w-32 h-16 text-2xl"
+          className={`w-32 h-16 text-2xl ${loading? 'bg-gray-500 cursor-not-allowed':''} `}
           onClick={currentPage >= totalPages ? submitTest : handleNextPage}
+          disabled={loading}
         >
-          {currentPage >= totalPages ? 'Submit' : 'Next'}
+          {loading? 'Loading..' : currentPage >= totalPages ? 'Submit' : 'Next'}
         </Button>
       </div>
     </>

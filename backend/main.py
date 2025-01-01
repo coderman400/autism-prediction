@@ -41,6 +41,9 @@ class InputData(BaseModel):
     country_of_res: str
     relation: str
 
+@app.get("/")
+def read_root():
+    return {"message": "Woke up!", "status": "running"}
 
 @app.post("/predict")
 def predict(input_data: InputData):
