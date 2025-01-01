@@ -2,6 +2,7 @@ import React from 'react'
 import ValueCard from "../components/ui/ValueCard";
 import QuestionsSection from "../components/QuestionsSection";
 import { useEffect } from 'react';
+import axios from 'axios';
 const Quiz = () => {
   useEffect(() => {
     const wakeBackend = async () => {
