@@ -66,7 +66,7 @@ const QuestionsSection = () => {
     try {
       setLoading(true)
       const response = await axios.post(
-        'http://127.0.0.1:8000/predict',
+        'https://autism-prediction-fmft.onrender.com/predict',
         answers
       );
       console.log('Test submitted successfully:', response.data.prediction);
